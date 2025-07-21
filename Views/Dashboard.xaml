@@ -1,0 +1,26 @@
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MAUI_Custom_Tabs.Views.Dashboard"
+    xmlns:vm="clr-namespace:MAUI_Custom_Tabs.ViewModels"
+    vm:ViewModelLocator.AutoWireViewModel="True"
+    xmlns:customControl="clr-namespace:MAUI_Custom_Tabs.CustomControls"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="{StaticResource DarkNavyBlue}"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{StaticResource DarkNavyBlue}"
+                                   StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+    <Grid RowDefinitions="Auto, *">
+        <customControl:CustomToolBar Grid.Row="0"
+                                     Title="Overview"/>
+        <Border Style="{StaticResource OuterScreenBorder}"
+                Grid.Row="1">
+            <customControl:CustomTabs Grid.Row="1"
+                                      Margin="0,15,0,0"
+                                      ItemsSource="{Binding TabManager.TabItems}"
+                                      SelectedIndex="{Binding TabManager.SelectedTabIndex, Mode=TwoWay}"/>
+        </Border>
+    </Grid>
+</ContentPage>

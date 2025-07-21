@@ -1,0 +1,343 @@
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MAUI_Custom_Tabs.Views.Insights"
+    xmlns:vm="clr-namespace:MAUI_Custom_Tabs.ViewModels"
+    vm:ViewModelLocator.AutoWireViewModel="True">
+
+    <ScrollView>
+        <StackLayout Spacing="20"
+                Padding="15">
+
+            <!-- Monthly Summary Cards -->
+            <Grid ColumnDefinitions="*,*"
+                    ColumnSpacing="10">
+                <!-- Total Expenses Card -->
+                <Border Grid.Column="0"
+                        Style="{StaticResource CardStyle}">
+                    <StackLayout Padding="20,15"
+                            Spacing="8">
+                        <Label Text="💰"
+                                FontSize="24"
+                                HorizontalOptions="Start"/>
+                        <Label Text="Total Expenses"
+                               FontSize="12"
+                               Style="{StaticResource BlackTextStyle400}"
+                               Opacity=".6"/>
+                        <Label Text="$2,847"
+                               FontSize="20"
+                               FontFamily="poppins400"
+                               TextColor="{AppThemeBinding Light={StaticResource DarkBlack}, Dark={StaticResource White}}"/>
+                        <Label Text="+12% from last month"
+                               FontSize="10"
+                               TextColor="#FF4444"
+                               Opacity=".8"/>
+                    </StackLayout>
+                </Border>
+
+                <!-- Avg Per Day Card -->
+                <Border Grid.Column="1"
+                        Style="{StaticResource CardStyle}">
+                    <StackLayout Padding="20,15"
+                            Spacing="8">
+                        <Label Text="📊"
+                                FontSize="24"
+                                HorizontalOptions="Start"/>
+                        <Label Text="Daily Average"
+                               FontSize="12"
+                               Style="{StaticResource BlackTextStyle400}"
+                               Opacity=".6"/>
+                        <Label Text="$91.8"
+                               FontSize="20"
+                               FontFamily="poppins400"
+                               TextColor="{AppThemeBinding Light={StaticResource DarkBlack}, Dark={StaticResource White}}"/>
+                        <Label Text="-5% from last month"
+                               FontSize="10"
+                               TextColor="#00CC66"
+                               Opacity=".8"/>
+                    </StackLayout>
+                </Border>
+            </Grid>
+
+            <!-- Category Breakdown -->
+            <Border Style="{StaticResource CardStyle}">
+                <StackLayout Padding="20"
+                        Spacing="15">
+                    <Label Text="📈 Category Breakdown"
+                           FontSize="16"
+                           FontFamily="poppins400"
+                           TextColor="{AppThemeBinding Light={StaticResource DarkBlack}, Dark={StaticResource White}}"/>
+
+                    <!-- Office Supplies -->
+                    <Grid ColumnDefinitions="3*,*,2*"
+                            RowDefinitions="Auto,Auto">
+                        <Label Grid.Column="0"
+                               Text="Office Supplies"
+                               FontSize="14"
+                               Style="{StaticResource BlackTextStyle400}"/>
+                        <Label Grid.Column="1"
+                               Text="$580"
+                               FontSize="14"
+                               Style="{StaticResource BlackTextStyle400}"
+                               HorizontalOptions="End"/>
+                        <Label Grid.Column="2"
+                               Text="20.4%"
+                               FontSize="12"
+                               TextColor="#007AFF"
+                               HorizontalOptions="End"/>
+                        <BoxView Grid.Row="1"
+                                 Grid.ColumnSpan="3"
+                                 HeightRequest="6"
+                                 BackgroundColor="#E5E5E5"
+                                 CornerRadius="3"
+                                 Margin="0,5,0,0"/>
+                        <BoxView Grid.Row="1"
+                                 Grid.ColumnSpan="3"
+                                 HeightRequest="6"
+                                 BackgroundColor="#007AFF"
+                                 CornerRadius="3"
+                                 WidthRequest="58"
+                                 HorizontalOptions="Start"
+                                 Margin="0,5,0,0"/>
+                    </Grid>
+
+                    <!-- Software -->
+                    <Grid ColumnDefinitions="3*,*,2*"
+                            RowDefinitions="Auto,Auto">
+                        <Label Grid.Column="0"
+                               Text="Software Licenses"
+                               FontSize="14"
+                               Style="{StaticResource BlackTextStyle400}"/>
+                        <Label Grid.Column="1"
+                               Text="$498"
+                               FontSize="14"
+                               Style="{StaticResource BlackTextStyle400}"
+                               HorizontalOptions="End"/>
+                        <Label Grid.Column="2"
+                               Text="17.5%"
+                               FontSize="12"
+                               TextColor="#FF3B30"
+                               HorizontalOptions="End"/>
+                        <BoxView Grid.Row="1"
+                                 Grid.ColumnSpan="3"
+                                 HeightRequest="6"
+                                 BackgroundColor="#E5E5E5"
+                                 CornerRadius="3"
+                                 Margin="0,5,0,0"/>
+                        <BoxView Grid.Row="1"
+                                 Grid.ColumnSpan="3"
+                                 HeightRequest="6"
+                                 BackgroundColor="#FF3B30"
+                                 CornerRadius="3"
+                                 WidthRequest="50"
+                                 HorizontalOptions="Start"
+                                 Margin="0,5,0,0"/>
+                    </Grid>
+
+                    <!-- Rent -->
+                    <Grid ColumnDefinitions="3*,*,2*"
+                            RowDefinitions="Auto,Auto">
+                        <Label Grid.Column="0"
+                               Text="Office Rent"
+                               FontSize="14"
+                               Style="{StaticResource BlackTextStyle400}"/>
+                        <Label Grid.Column="1"
+                               Text="$450"
+                               FontSize="14"
+                               Style="{StaticResource BlackTextStyle400}"
+                               HorizontalOptions="End"/>
+                        <Label Grid.Column="2"
+                               Text="15.8%"
+                               FontSize="12"
+                               TextColor="#00C896"
+                               HorizontalOptions="End"/>
+                        <BoxView Grid.Row="1"
+                                 Grid.ColumnSpan="3"
+                                 HeightRequest="6"
+                                 BackgroundColor="#E5E5E5"
+                                 CornerRadius="3"
+                                 Margin="0,5,0,0"/>
+                        <BoxView Grid.Row="1"
+                                 Grid.ColumnSpan="3"
+                                 HeightRequest="6"
+                                 BackgroundColor="#00C896"
+                                 CornerRadius="3"
+                                 WidthRequest="45"
+                                 HorizontalOptions="Start"
+                                 Margin="0,5,0,0"/>
+                    </Grid>
+                </StackLayout>
+            </Border>
+
+            <!-- Recent Trends -->
+            <Border Style="{StaticResource CardStyle}">
+                <StackLayout Padding="20"
+                        Spacing="15">
+                    <Label Text="📉 Recent Trends"
+                           FontSize="16"
+                           FontFamily="poppins400"
+                           TextColor="{AppThemeBinding Light={StaticResource DarkBlack}, Dark={StaticResource White}}"/>
+
+                    <Grid ColumnDefinitions="*,*,*"
+                            ColumnSpacing="15">
+                        <!-- Week 1 -->
+                        <StackLayout Grid.Column="0"
+                                Spacing="5">
+                            <Label Text="Week 1"
+                                   FontSize="12"
+                                   Style="{StaticResource BlackTextStyle400}"
+                                   Opacity=".6"
+                                   HorizontalOptions="Center"/>
+                            <BoxView HeightRequest="60"
+                                     WidthRequest="20"
+                                     BackgroundColor="#007AFF"
+                                     CornerRadius="10"
+                                     HorizontalOptions="Center"/>
+                            <Label Text="$642"
+                                   FontSize="12"
+                                   Style="{StaticResource BlackTextStyle400}"
+                                   HorizontalOptions="Center"/>
+                        </StackLayout>
+
+                        <!-- Week 2 -->
+                        <StackLayout Grid.Column="1"
+                                Spacing="5">
+                            <Label Text="Week 2"
+                                   FontSize="12"
+                                   Style="{StaticResource BlackTextStyle400}"
+                                   Opacity=".6"
+                                   HorizontalOptions="Center"/>
+                            <BoxView HeightRequest="80"
+                                     WidthRequest="20"
+                                     BackgroundColor="#FF3B30"
+                                     CornerRadius="10"
+                                     HorizontalOptions="Center"/>
+                            <Label Text="$891"
+                                   FontSize="12"
+                                   Style="{StaticResource BlackTextStyle400}"
+                                   HorizontalOptions="Center"/>
+                        </StackLayout>
+
+                        <!-- Week 3 -->
+                        <StackLayout Grid.Column="2"
+                                Spacing="5">
+                            <Label Text="Week 3"
+                                   FontSize="12"
+                                   Style="{StaticResource BlackTextStyle400}"
+                                   Opacity=".6"
+                                   HorizontalOptions="Center"/>
+                            <BoxView HeightRequest="45"
+                                     WidthRequest="20"
+                                     BackgroundColor="#00C896"
+                                     CornerRadius="10"
+                                     HorizontalOptions="Center"/>
+                            <Label Text="$456"
+                                   FontSize="12"
+                                   Style="{StaticResource BlackTextStyle400}"
+                                   HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </Border>
+
+            <!-- Quick Stats -->
+            <Grid ColumnDefinitions="*,*"
+                    ColumnSpacing="10">
+                <!-- Most Expensive Day -->
+                <Border Grid.Column="0"
+                        Style="{StaticResource CardStyle}">
+                    <StackLayout Padding="15"
+                            Spacing="8">
+                        <Label Text="🔥"
+                                FontSize="20"
+                                HorizontalOptions="Start"/>
+                        <Label Text="Highest Day"
+                               FontSize="11"
+                               Style="{StaticResource BlackTextStyle400}"
+                               Opacity=".6"/>
+                        <Label Text="12 Jul"
+                               FontSize="14"
+                               FontFamily="poppins400"
+                               TextColor="{AppThemeBinding Light={StaticResource DarkBlack}, Dark={StaticResource White}}"/>
+                        <Label Text="$299"
+                               FontSize="16"
+                               FontFamily="poppins400"
+                               TextColor="#FF3B30"/>
+                    </StackLayout>
+                </Border>
+
+                <!-- Most Common Category -->
+                <Border Grid.Column="1"
+                        Style="{StaticResource CardStyle}">
+                    <StackLayout Padding="15"
+                            Spacing="8">
+                        <Label Text="⭐"
+                                FontSize="20"
+                                HorizontalOptions="Start"/>
+                        <Label Text="Top Category"
+                               FontSize="11"
+                               Style="{StaticResource BlackTextStyle400}"
+                               Opacity=".6"/>
+                        <Label Text="Office"
+                               FontSize="14"
+                               FontFamily="poppins400"
+                               TextColor="{AppThemeBinding Light={StaticResource DarkBlack}, Dark={StaticResource White}}"/>
+                        <Label Text="8 items"
+                               FontSize="16"
+                               FontFamily="poppins400"
+                               TextColor="#007AFF"/>
+                    </StackLayout>
+                </Border>
+            </Grid>
+
+            <!-- Budget Status -->
+            <Border Style="{StaticResource CardStyle}">
+                <StackLayout Padding="20" Spacing="12">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0"
+                               Text="💳 Budget Status" 
+                               FontSize="16" 
+                               FontFamily="poppins400"
+                               TextColor="{AppThemeBinding Light={StaticResource DarkBlack}, Dark={StaticResource White}}"/>
+                        <Label Grid.Column="1"
+                               Text="$2,847 / $3,500" 
+                               FontSize="14" 
+                               Style="{StaticResource BlackTextStyle400}"
+                               Opacity=".7"/>
+                    </Grid>
+
+                    <StackLayout Spacing="5">
+                        <BoxView HeightRequest="8"
+                                 BackgroundColor="#E5E5E5"
+                                 CornerRadius="4"/>
+                        <BoxView HeightRequest="8"
+                                 BackgroundColor="#00C896"
+                                 CornerRadius="4"
+                                 WidthRequest="245"
+                                 HorizontalOptions="Start"
+                                 Margin="0,-8,0,0"/>
+                    </StackLayout>
+
+                    <Grid ColumnDefinitions="*, *, *">
+                        <Label Grid.Column="0"
+                               Text="81% used"
+                               FontSize="12"
+                               TextColor="#00C896"/>
+                        <Label Grid.Column="1"
+                               Text="$653 remaining"
+                               FontSize="12"
+                               Style="{StaticResource BlackTextStyle400}"
+                               Opacity=".6"
+                               HorizontalOptions="Center"/>
+                        <Label Grid.Column="2"
+                               Text="9 days left"
+                               FontSize="12"
+                               Style="{StaticResource BlackTextStyle400}"
+                               Opacity=".6"
+                               HorizontalOptions="End"/>
+                    </Grid>
+                </StackLayout>
+            </Border>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

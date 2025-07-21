@@ -1,0 +1,64 @@
+<ContentView
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="MAUI_Custom_Tabs.Views.Reports"
+       xmlns:vm="clr-namespace:MAUI_Custom_Tabs.ViewModels"
+       vm:ViewModelLocator.AutoWireViewModel="True">
+       <Grid>
+              <CollectionView ItemsSource="{Binding ReportList}">
+                     <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"
+                                               ItemSpacing="1">
+                            </LinearItemsLayout>
+                     </CollectionView.ItemsLayout>
+                     <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                   <Grid RowDefinitions="Auto, Auto"
+                                                 Padding="15,6">
+                                          <Border Grid.RowSpan="2"
+                                                  Style="{StaticResource CardStyle}"/>
+                                          <Grid Grid.Row="0"
+                                                ColumnDefinitions="3*,5*,2*"
+                                                Padding="15">
+                                                 <Label Grid.Column="0"
+                                                        Text="{Binding ReceiptDate, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                        FontSize="12"
+                                                        Style="{StaticResource BlackTextStyle400}"
+                                                        Opacity=".5"
+                                                        HorizontalOptions="Start"/>
+                                                 <Label Grid.Column="1"
+                                                        Text="{Binding Description}"
+                                                        FontSize="12"
+                                                        MaxLines="1"
+                                                        LineBreakMode="TailTruncation"
+                                                        Style="{StaticResource BlackTextStyle400}"
+                                                        Opacity=".5"
+                                                        VerticalTextAlignment="Center"/>
+                                                 <Label Grid.Column="2"
+                                                        FontSize="12"
+                                                        FontFamily="poppins400"
+                                                        TextColor="{AppThemeBinding Light={StaticResource DarkBlack}, Dark={StaticResource White}}"
+                                                        Opacity=".5"
+                                                        HorizontalOptions="Center">
+                                                        <Label.Style>
+                                                               <Style TargetType="Label">
+                                                                      <Setter Property="Text"
+                                                                              Value="{Binding GrandTotal, StringFormat='${0:N0}'}"/>
+                                                                      <Style.Triggers>
+                                                                             <DataTrigger TargetType="Label"
+                                                                                          Binding="{Binding GrandTotal}"
+                                                                                          Value="0">
+                                                                                    <Setter Property="Text"
+                                                                                            Value="Free"/>
+                                                                             </DataTrigger>
+                                                                      </Style.Triggers>
+                                                               </Style>
+                                                        </Label.Style>
+                                                 </Label>
+                                          </Grid>
+                                   </Grid>
+                            </DataTemplate>
+                     </CollectionView.ItemTemplate>
+              </CollectionView>
+       </Grid>
+</ContentView>
